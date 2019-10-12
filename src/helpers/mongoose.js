@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/whitepanda-test ';
+const MONGO_URI = 'mongodb://<dbuser>:<dbpassword>@ds333238.mlab.com:33238/heroku_x3lqjkts';
 
 // Fixing deprication warnings
 const options = {
