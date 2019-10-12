@@ -15,12 +15,13 @@ async function getAvailableCars(req, res, next){
             seating_capacity,
             model,
             other_details
-        } = req.params;
-        let query;
-        if(!seating_capacity) query.seating_capacity = seating_capacity;
-        if(!model) query.model = model;
-        if(!other_details) query.other_details = other_details;
+        } = req.query;
+        let query = {};
+        if(seating_capacity) query.seating_capacity = seating_capacity;
+        if(model) query.model = model;
+        if(other_details) query.other_details = other_details;
         query.booked =  false;
+        console.log(query)
         const doc = await Car.find( query );
         res.json(doc)
     }catch(error){
