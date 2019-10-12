@@ -9,6 +9,24 @@ async function getCars(req, res, next){
         next(error);
     }
 }
+async function getAvailableCars(req, res, next){
+    try{
+        const {
+            seating_capacity,
+            model,
+            other_details
+        } = req.params;
+        let query;
+        if(!seating_capacity) query.seating_capacity = seating_capacity;
+        if(!model) query.model = model;
+        if(!other_details) query.other_details = other_details;
+        query.booked =  false;
+        const doc = await Car.find( query );
+        res.json(doc)
+    }catch(error){
+        next(error);
+    }
+}
 
 async function getCar(req, res, next){
     try{
@@ -89,4 +107,5 @@ module.exports = {
     updateCar,
     getCar,
     deleteCar,
+    getAvailableCars
 }

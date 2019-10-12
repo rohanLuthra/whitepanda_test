@@ -10,8 +10,8 @@ const swaggerDefinition = {
     basePath: '/',
     servers: [
         {
-            url: 'http://localhost:3000/',
-            description: 'localhost for testing',
+            url: 'https://whitepanda-test.herokuapp.com',
+            description: 'Heroku server',
         },
     ],
 };

@@ -6,6 +6,7 @@ const {
     updateCar,
     getCar,
     deleteCar,
+    getAvailableCars,
 } = require('./car-controller');
 
 /**
@@ -27,6 +28,42 @@ const {
  * 
  */
 router.get('/', getCars)
+
+/**
+ * @swagger
+ *  /cars/avail/:
+ *      get:
+ *          tags: 
+ *              - cars
+ *          summary: Get all available cars with query
+ *          parameters:
+ *              - in: query
+ *                name: seating_capacity
+ *                schema:
+ *                  type: number
+ *                description: Seating capacity of the car
+ *              - in: query
+ *                name: model
+ *                schema:
+ *                  type: string
+ *                description: Model of car
+ *              - in: query
+ *                name: other_details
+ *                schema:
+ *                  type: object  
+ *          responses:
+ *              200:
+ *                  description: List of cars
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/car'
+ * 
+ */
+router.get('/avail', getAvailableCars)
+
 /**
  * @swagger
  *  /cars/:
