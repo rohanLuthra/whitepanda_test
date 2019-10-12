@@ -12,6 +12,9 @@ const swaggerDefinition = {
         {
             url: 'https://whitepanda-test.herokuapp.com',
             description: 'Heroku server',
+        },{
+            url: 'http://localhost:3000',
+            description: 'Local host testing server',
         },
     ],
 };
